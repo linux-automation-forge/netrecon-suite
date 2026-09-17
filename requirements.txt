@@ -1,0 +1,64 @@
+# Not a real python requirements file - bash doesn't install stuff from
+# these. This is the shopping list. The script checks every one of these
+# at runtime and just skips whatever you don't have, so technically you
+# only NEED the "required" block. Everything else makes it better.
+#
+# Debian/Kali names below - on Arch most of these are the same name,
+# except: dnsutils=bind-tools, mtr-tiny=mtr, tshark=wireshark-cli
+
+# --- you can't run the script without these ---------------------------------
+bash            (4.0 or newer)
+coreutils       (timeout, date, tee, stat, find...)
+iproute2        (ip, ss, nstat, tc)
+curl
+
+# --- module 1: dns and routing ----------------------------------------------
+dnsutils        (dig, nslookup, host)
+whois
+traceroute
+mtr-tiny
+geoip-bin
+bgpq3           (or bgpq4)
+jq
+
+# --- module 1: subdomain enum (nice to have) --------------------------------
+dnsrecon
+dnsenum
+fierce
+amass
+subfinder
+theharvester
+
+# --- module 2: local network stuff (most want root) -------------------------
+arp-scan
+arping
+netdiscover
+fping
+iw
+wireless-tools  (iwlist)
+lsof
+net-tools       (old ifconfig/arp, used as fallback)
+nmap
+
+# --- module 3: performance --------------------------------------------------
+iputils-ping
+tcpdump
+tshark
+iftop
+nethogs
+iperf3
+ethtool
+
+# --- module 4: the loud stuff (all want root) -------------------------------
+masscan
+zmap
+hping3
+openbsd-netcat  (nc - or ncat, and there's a builtin bash fallback anyway)
+openssl
+sslscan
+testssl.sh
+whatweb
+wafw00f
+nikto
+enum4linux      (or enum4linux-ng)
+snmp            (snmpwalk)
